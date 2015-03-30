@@ -1,0 +1,101 @@
+@import url("http://c.boylett.uk/fonts/fontawesome/4/font-awesome.min.css");
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+
+
+/*ALL PAGES*/
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+  font-family:'Open Sans', sans-serif;
+}
+
+html{
+   background-color: #4981ff;
+  
+ text-align: center;   
+}
+header{
+ background-color: #4981ff;
+ height: 4rem;
+ border-bottom: 1px solid #fff;
+}
+
+h1{
+ margin-top: 1rem;   
+    color: #fff;
+}
+
+/*
+ul{
+  color: #fff;
+
+}
+*/
+
+#personicon{
+ float: left;
+ margin-left: 15px;
+ margin-top: 8px;
+    color: #fff;
+ font-size: 45px;
+}
+#worldicon{
+ float: right;
+ margin-right: 15px;
+ margin-top: 8px;
+ list-style-type: none;
+ font-size: 45px;
+
+    
+}
+
+a{
+ color: #fff;  
+        transition: 1s;
+
+}
+
+a:hover{
+ color: #a8c3ff; 
+ transition: .3s;
+ 
+}
+
+
+/*CONTACT*/
+
+#thecontact{
+ color: #000;   
+ 
+/* border: 1px solid black;*/
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*MAP*/
+
+
+#map{
+ text-align: center;
+ margin: 0 auto;
+}
+
+
+
+@media (max-width: 500px) {
+ #map{
+     width: 90%;
+  }
+

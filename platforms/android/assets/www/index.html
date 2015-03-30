@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+
+    <script>
+        var Con = [];
+
+
+        // Wait for device API libraries to load
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // device APIs are available
+
+        function onDeviceReady() {
+            //if statment to check localstorage
+
+            // find all contacts with 'Bob' in any name field
+            var options = new ContactFindOptions();
+            options.filter = "";
+            options.multiple = true;
+            var fields = ["displayName", "name"];
+            navigator.contacts.find(fields, sucessFunc, errFunc, options);
+        }
+
+        // onSuccess: Get a snapshot of the current contacts
+
+        function sucessFunc(contacts) {
+            console.log((contacts));
+
+//                        var contactList = document.getElementById("thecontact");
+
+//            var contactList = document.getElementById("thecons");
+
+
+
+
+            for (var i = 0; i < 12; i++) {
+                contactList.innerHTML += contacts[i].displayName + "<br>";
+            }
+            for (var i = 0; i < 12; i++) {
+                var newCon = {
+                    id: (contacts[i].id),
+                    name: (contacts[i].name.formatted),
+                    numbers: contacts[i].phoneNumbers[0].value,
+                    lat: "",
+                    lng: ""
+                };
+
+                Con.push(newCon);
+
+            }
+
+            showContacts();
+        }
+        console.log(Con);
+
+
+        function showContacts() {
+
+            var ul = document.getElementById("mycons");
+
+            for (var i = 0; i < 12; i++) {
+
+                var li = document.createElement("li");
+                li.innerHTML = Con[i].name;
+                ul.appendChild(li);
+
+
+                //                Conlist.appendchild(li);
+
+                //            var newCon = {id:(contacts[i].id),
+                //                               name:(contacts[i].name.formatted),
+                //                               numbers:contact[i].phoneNumbers[0].value,
+                //                               lat:"",lng:""};
+
+                //                   var Contact = document.getElementById("thecontact")
+                //    
+                //    Contact.innerHTML = "Name: " + contacts[0].displayName + "<br>" + "Phone: " + contacts[0].phoneNumbers[0].value;
+
+            }
+
+        }
+
+        // onError: Failed to get the contacts
+
+        function errFunc(contactError) {
+            alert('onError!');
+        }
+    </script>
+
+
+</head>
+
+<body>
+
+
+    <header>
+        <nav id="navigation">
+            <ul>
+
+                <li id="personicon"><a href="index.html"><i class="fa fa-user"></i>
+        <li id="worldicon"><a href="map.html"><i class="fa fa-globe"></i></a>
+                </li>
+                </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <div id="thecontact">
+        <ul id="mycons">
+
+        </ul>
+    </div>
+
+
+
+
+    <script src="cordova.js"></script>
+    <script src=""></script>
+</body>
+
+</html>
